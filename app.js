@@ -69,11 +69,11 @@ app.post('/checkout', function (req, res) {
             email: "test_user_81131286@testuser.com",
             phone: {
                 area_code: "11",
-                number: "22223333"
+                number: 22223333
             },
             address: {
                 street_name: "Falsa",
-                street_number: "123",
+                street_number: 123,
                 zip_code: "1111"
             }
         },
@@ -103,7 +103,7 @@ app.post('/checkout', function (req, res) {
         });
 
 
-    res.render('home');
+    //res.render('home');
 
     // res.render('detail', req.query);
 });
