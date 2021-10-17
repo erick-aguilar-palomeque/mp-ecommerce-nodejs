@@ -30,10 +30,12 @@ app.get('/', function (req, res) {
 });
 
 const getMercadoResponseInfo = (req) => {
+    console.log(req.query);
     let data = {
         paymentId: req.query.collection_id,
         paymentMethodId: req.query.payment_type,
         externalReference: req.query.external_reference,
+        preferenceId: req.query.preference_id,
     };
     return data;
 }
