@@ -10,7 +10,7 @@
                                 class="pd-billboard-hero ir">
                         </div>
                         <div class="pd-billboard-info">
-                            <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce</h1>
+                            <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda Erick Aguilar </h1>
                         </div>
                     </div>
                 </div>
@@ -18,9 +18,36 @@
         </div>
     </div>
     <div class="as-search-results as-filter-open as-category-landing as-desktop" id="as-search-results">
-        <h1>FALLIDO</h1>
-        <p>paymentId: {{paymentId}}</p>
-        <p>paymentMethodId: {{paymentMethodId}}</p>
-        <p>externalReference: {{externalReference}}</p>
+        <div class="as-producttile-info detail-container" style="float: initial;margin:auto;margin-top:2rem;">
+            <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
+                <div class="item">
+                    <b>
+                        <h2 style="color:rgb(252, 0, 0)">Ha ocurrido un error al realizar la compra</h2>
+                    </b>
+
+                </div>
+                <div class="item">
+                    <b>
+                        <h2>payment_id</h2>
+                    </b>
+                    <h3 name="unit">{{paymentId}}</h3>
+                </div>
+                <div class="item">
+                    <b>
+                        <h2>payment_method_id</h2>
+                    </b>
+                    <h3 name="unit">{{paymentMethodId}}</h3>
+                </div>
+                <div class="item">
+                    <b>
+                        <h2>external_reference</h2>
+                    </b>
+                    <h3 name="unit">{{externalReference}}</h3>
+                </div>
+            </div>
+
+            <button onclick="window.location.href='https://erick-aguilar-ecommerce.herokuapp.com/'"
+                class="mercadopago-button">Volver a la página principal</button>
+        </div>
     </div>
 </div>

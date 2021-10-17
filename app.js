@@ -114,18 +114,9 @@ app.get('/failure', function (req, res) {
     res.render('failure', data);
 });
 
-
-
-app.post('/checkout', function (req, res) {
-    console.log('info==>')
-    console.log(req.body);
-    const { title, unit, price, img } = req.body;
-
-
-
-    //res.render('home');
-
-    // res.render('detail', req.query);
+app.post('/webhook', function (req, res) {
+    console.log('BODY : ', JSON.stringify(req.body));
+    console.log(req.query);
+    res.status(200).send();
 });
-
 app.listen(port);
