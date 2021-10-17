@@ -73,7 +73,7 @@
                             </div>
 
                         </div>
-                        <form action="/checkout" method="post">
+                        {{!-- <form action="/checkout" method="post"> --}}
                             <div class="as-producttile-info detail-container">
                                 <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                     <div class="item">
@@ -106,9 +106,11 @@
                                         <input type="text" name="img" value={{img}}>
                                     </div>
                                 </div>
-                                <button type="submit" class="mercadopago-button">Pagar</button>
+                                <button onclick="location.href='{{init_point}}';" type="submit"
+                                    class="mercadopago-button" formmethod="post">Pagar</button>
                             </div>
-                        </form>
+                            {{!--
+                        </form> --}}
                     </div>
                 </div>
             </div>

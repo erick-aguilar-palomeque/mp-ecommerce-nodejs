@@ -10,7 +10,7 @@ mercadopago.configure({
     integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
 });
 var app = express();
-
+var id = '';
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -30,37 +30,15 @@ app.get('/', function (req, res) {
 });
 
 app.get('/detail', function (req, res) {
-    res.render('detail', req.query);
-});
-
-app.get('/success', function (req, res) {
-    res.render('success', req.query);
-});
-
-app.get('/pending', function (req, res) {
-    res.render('pending', req.query);
-});
-
-app.get('/failure', function (req, res) {
-    res.render('failure', req.query);
-});
-
-
-
-app.post('/checkout', function (req, res) {
-    console.log('info==>')
-    console.log(req.body);
-    const { title, unit, price, img } = req.body;
-
     // Crea un objeto de preferencia
     let preference = {
         items: [
             {
                 id: "1234",
-                title,
+                title: req.query.title,
                 description: 'Teléfono de tienda e-commerce',
-                quantity: parseInt(unit),
-                unit_price: parseInt(price)
+                quantity: parseInt(req.query.unit),
+                unit_price: parseInt(req.query.price)
             }
         ],
         payer: {
@@ -96,11 +74,39 @@ app.post('/checkout', function (req, res) {
         .then(function (response) {
             console.log("respondio mercado");
             console.log(response);
+            id = response.body.id;
             // Este valor reemplazará el string "<%= global.id %>" en tu HTML
-            // global.id = response.body.id;
+            req.query.globalID = response.body.id;
+            req.query.id = response.body.id;
+            req.query.init_point = response.body.init_point;
+            console.log(`redirigir a ${response.body.init_point}`)
+            res.render('detail', req.query);
         }).catch(function (error) {
+            console.log("entra al catch: error")
             console.log(error);
+            res.render('failure', req.query);
         });
+});
+
+app.get('/success', function (req, res) {
+    res.render('success', req.query);
+});
+
+app.get('/pending', function (req, res) {
+    res.render('pending', req.query);
+});
+
+app.get('/failure', function (req, res) {
+    res.render('failure', req.query);
+});
+
+
+
+app.post('/checkout', function (req, res) {
+    console.log('info==>')
+    console.log(req.body);
+    const { title, unit, price, img } = req.body;
+
 
 
     //res.render('home');
