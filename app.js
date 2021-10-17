@@ -41,13 +41,14 @@ const getMercadoResponseInfo = (req) => {
 }
 
 app.get('/detail', function (req, res) {
+    console.log(`img:${'https://erick-aguilar-ecommerce.herokuapp.com/' + req.query.img.substring(1)}`);
     // Crea un objeto de preferencia
     let preference = {
         items: [
             {
                 id: "1234",
                 title: req.query.title,
-                description: 'Teléfono de tienda e-commerce',
+                description: 'Dispositivo móvil de Tienda e-commerce',
                 picture_url: 'https://erick-aguilar-ecommerce.herokuapp.com/' + req.query.img.substring(1),
                 quantity: parseInt(req.query.unit),
                 unit_price: parseInt(req.query.price)
