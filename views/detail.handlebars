@@ -80,7 +80,8 @@
                                         <b>
                                             <h2>Nombre del producto</h2>
                                         </b>
-                                        <h3 name="title">{{title}}</h3>
+                                        <input type="text" name="title" value={{title}}>
+                                        {{!-- <h3 name="title">{{title}}</h3> --}}
 
 
                                     </div>
@@ -88,13 +89,21 @@
                                         <b>
                                             <h2>Unidades</h2>
                                         </b>
-                                        <h3 name="unit">{{unit}}</h3>
+                                        <input type="text" name="unit" value={{unit}}>
+                                        {{!-- <h3 name="unit">{{unit}}</h3> --}}
                                     </div>
                                     <div class="item">
                                         <b>
                                             <h2>Precio</h2>
                                         </b>
-                                        <h3 name="price">{{price}}</h3>
+                                        <input type="text" name="price" value={{price}}>
+                                        {{!-- <h3 name="price">{{price}}</h3> --}}
+                                    </div>
+                                    <div class="item">
+                                        <b>
+                                            <h2>URL Image</h2>
+                                        </b>
+                                        <input type="text" name="img" value={{img}}>
                                     </div>
                                 </div>
                                 <button type="submit" class="mercadopago-button">Pagar</button>
