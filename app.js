@@ -29,6 +29,15 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 
+const getMercadoResponseInfo = (req) => {
+    let data = {
+        paymentId: req.query.collection_id,
+        paymentMethodId: req.query.payment_type,
+        externalReference: req.query.external_reference,
+    };
+    return data;
+}
+
 app.get('/detail', function (req, res) {
     // Crea un objeto de preferencia
     let preference = {
@@ -37,10 +46,12 @@ app.get('/detail', function (req, res) {
                 id: "1234",
                 title: req.query.title,
                 description: 'Teléfono de tienda e-commerce',
+                picture_url: 'https://erick-aguilar-ecommerce.herokuapp.com/' + req.query.img.substring(1),
                 quantity: parseInt(req.query.unit),
                 unit_price: parseInt(req.query.price)
             }
         ],
+        external_reference: "aguilar505088@gmail.com",
         payer: {
             name: "Lalo",
             surname: "Landa",
@@ -89,15 +100,18 @@ app.get('/detail', function (req, res) {
 });
 
 app.get('/success', function (req, res) {
-    res.render('success', req.query);
+    const data = getMercadoResponseInfo(req);
+    res.render('success', data);
 });
 
 app.get('/pending', function (req, res) {
-    res.render('pending', req.query);
+    const data = getMercadoResponseInfo(req);
+    res.render('pending', data);
 });
 
 app.get('/failure', function (req, res) {
-    res.render('failure', req.query);
+    const data = getMercadoResponseInfo(req);
+    res.render('failure', data);
 });
 
 
